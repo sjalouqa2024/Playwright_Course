@@ -1,12 +1,8 @@
 
-import{test, type Locator,type Page} from "@playwright/test";
+import{ type Locator,type Page} from "@playwright/test";
 import { BasePage } from "./basePage.ts";
 
-test.use(
-{
-    launchOptions: {slowMo:800},}
-);
-export class ToDoPage extends BasePage {
+export class LoginPage extends BasePage {
 public readonly userName: Locator;
 public readonly password: Locator;
 public readonly logInButton : Locator;
@@ -39,6 +35,6 @@ async login():Promise<void>{
 
 async logout():Promise<void>{
     await this.burgerMenu.click();
-    await this.page.getByRole("link", { name: "Logout" }).click();
+    await this.page.getByRole("button", { name: "Logout" }).click();
 }
 }
